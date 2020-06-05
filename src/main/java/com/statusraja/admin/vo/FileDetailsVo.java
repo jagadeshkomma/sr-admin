@@ -19,14 +19,23 @@ public class FileDetailsVo implements Serializable {
 	private String category;
 	private String filename;
 	private String file_url;
+	private String file_duration;
+	private String filePath;
 	private String extension;
 	private String fileStatus;
-
+	private String banner_img;
 	private Date createddate;
 	private Date updateddate;
 
+	private String statusContent;
+	private String actor;
+	private Integer likes;
+	private Integer downloadcount;
+	
 	MultipartFile file;
-
+	
+	
+	
 	public Integer getSrid() {
 		return srid;
 	}
@@ -147,13 +156,72 @@ public class FileDetailsVo implements Serializable {
 		this.type = type;
 	}
 
+	public String getBanner_img() {
+		return banner_img;
+	}
+
+	public void setBanner_img(String banner_img) {
+		this.banner_img = banner_img;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public Integer getLikes() {
+		return likes;
+	}
+
+	public void setLikes(Integer likes) {
+		this.likes = likes;
+	}
+
+	public Integer getDownloadcount() {
+		return downloadcount;
+	}
+
+	public void setDownloadcount(Integer downloadcount) {
+		this.downloadcount = downloadcount;
+	}
+
+	public String getActor() {
+		return actor;
+	}
+
+	public void setActor(String actor) {
+		this.actor = actor;
+	}
+
+	
+	public String getStatusContent() {
+		return statusContent;
+	}
+
+	public void setStatusContent(String statusContent) {
+		this.statusContent = statusContent;
+	}
+	
+	public String getFile_duration() {
+		return file_duration;
+	}
+
+	public void setFile_duration(String file_duration) {
+		this.file_duration = file_duration;
+	}
+
 	@Override
 	public String toString() {
 		return "FileDetailsVo [srid=" + srid + ", formatid=" + formatid + ", type=" + type + ", filefullname="
 				+ filefullname + ", fileshortname=" + fileshortname + ", description=" + description + ", language="
 				+ language + ", category=" + category + ", filename=" + filename + ", file_url=" + file_url
-				+ ", extension=" + extension + ", fileStatus=" + fileStatus + ", createddate=" + createddate
-				+ ", updateddate=" + updateddate + ", file=" + file + "]";
+				+ ", file_duration=" + file_duration + ", filePath=" + filePath + ", extension=" + extension
+				+ ", fileStatus=" + fileStatus + ", banner_img=" + banner_img + ", createddate=" + createddate
+				+ ", updateddate=" + updateddate + ", statusContent=" + statusContent + ", actor=" + actor + ", likes="
+				+ likes + ", downloadcount=" + downloadcount + ", file=" + file + "]";
 	}
 
 }
