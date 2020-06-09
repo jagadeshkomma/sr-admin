@@ -272,14 +272,16 @@
                         <span class="menu_icon"><i class="material-icons">audiotrack</i></span>
                         <span class="menu_title">RingTones</span>
                     </a>
-                    
                 </li>
-                <li title="Mailbox">
-                    <a href="${contextPath}/">
-                        <span class="menu_icon"><i class="material-icons">&#xE158;</i></span>
-                        <span class="menu_title">Mailbox</span>
+               <li title="Layout">
+                    <a href="#">
+                        <span class="menu_icon"><i class="material-icons">ac_unit</i></span>
+                        <span class="menu_title">Status</span>
                     </a>
-                    
+                    <ul>
+                        <li><a href="${contextPath}/admin/statuslist">Status List</a></li>
+                        <li><a href="${contextPath}/admin/add-status">Add Status</a></li>
+                    </ul>
                 </li>
                 <li title="Invoices">
                     <a href="${contextPath}/">
@@ -582,19 +584,7 @@
    <script src="${contextPath}/js/common.min.js"></script>
    <script src="${contextPath}/js/uikit_custom.min.js"></script>
    <script src="${contextPath}/js/altair_admin_common.min.js"></script>
-   <script src="${contextPath}/js/pages/dashboard.min.js"></script>
-   <script src="${contextPath}/js/custom/handlebars_helpers.min.js"></script>
    
-    <script src="${contextPath}/bower_components/d3/d3.min.js"></script>
-    <script src="${contextPath}/bower_components/metrics-graphics/dist/metricsgraphics.min.js"></script>
-    <script src="${contextPath}/bower_components/chartist/dist/chartist.min.js"></script>
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyC2FodI8g-iCz1KHRFE7_4r8MFLA7Zbyhk"></script>
-    <script src="${contextPath}/bower_components/maplace-js/dist/maplace.min.js"></script>
-    <script src="${contextPath}/bower_components/peity/jquery.peity.min.js"></script>
-    <script src="${contextPath}/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
-    <script src="${contextPath}/bower_components/countUp.js/dist/countUp.min.js"></script>
-    <script src="${contextPath}/bower_components/handlebars/handlebars.min.js"></script>
-    <script src="${contextPath}/bower_components/clndr/clndr.min.js"></script> 
     
     <!-- datatables -->
     <script src="${contextPath}/bower_components/datatables/media/js/jquery.dataTables.min.js"></script>
@@ -614,7 +604,15 @@
     <!--  datatables functions -->
     <script src="${contextPath}/js/pages/plugins_datatables.min.js"></script>
     
-     <script src="${contextPath}/js/pages/forms_validation.min.js"></script>
+     <script src="${contextPath}/file_manager/js/elfinder.min.js"></script>
+    <script src="${contextPath}/file_manager/js/extras/tinymceElfinder.js"></script>
+    <!-- tinymce -->
+    <script src="${contextPath}/bower_components/tinymce/tinymce.min.js"></script>
+
+    <!--  wysiwyg editors functions -->
+    <script src="${contextPath}/js/pages/forms_wysiwyg.min.js"></script>
+    
+    
     <script>
         $(function() {
             if(isHighDensity()) {
@@ -846,6 +844,18 @@
 
         });
     </script>
+    
+   <script type="text/javascript">
+	tinymce.init({
+	    selector: "textarea#wysiwyg_tinymce",
+	    plugins: [
+	        "advlist autolink lists link image charmap print preview anchor",
+	        "searchreplace visualblocks code fullscreen",
+	        "insertdatetime media table paste"
+	    ],
+	    toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+	});
+	</script>   
 </body>
 
 </html>

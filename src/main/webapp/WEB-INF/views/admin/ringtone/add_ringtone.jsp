@@ -22,7 +22,7 @@
                   <div class="uk-width-medium-1-2">
                       <div class="parsley-row">
                           <label for="fullname">Song Full Name <span class="req">*</span></label>
-                          <input type="text" name="filefullname" required class="md-input" />
+                          <input type="text" name="filefullname" required class="md-input"   />
                       </div>
                   </div>
                   <div class="uk-width-medium-1-2">
@@ -47,11 +47,11 @@
                     <h3 class="heading_a">Select Language</h3>
                     <div class="uk-grid" data-uk-grid-margin="">
                         <div class="uk-width-medium-1-3 uk-row-first">
-                             <select name="language" style="width: 159px;">
-                            	<option	value="hindi">Hindi</option>
-                            	<option value="telugu">Telugu</option>
-                            	<option	value="tamil">Tamil</option>
-                            	<option	value="malayalam">Malayalam</option>
+                             <select name="langid" style="width: 159px;" class="md-input" required="required">
+                             		<option	value="">please select language</option>
+                             	<c:forEach items="${languages}" var="lang">
+                            		<option	value="${lang.langid}">${lang.name}</option>
+                            	</c:forEach>
                             </select>
                         </div>
                     </div>
@@ -60,15 +60,11 @@
                     <h3 class="heading_a">Select Category</h3>
                     <div class="uk-grid" data-uk-grid-margin="">
                         <div class="uk-width-medium-1-3 uk-row-first">
-                           <select name="category"  style="width: 159px;">
-                            	<option	value="melody">Melody</option>
-                            	<option value="romantic">Romantic</option>
-                            	<option	value="children">Children</option>
-                            	<option	value="emotional">Emotional</option>
-                            	<option	value="love">Love</option>
-                            	<option	value="devotional">Devotional</option>
-                            	<option	value="dance">Dance</option>
-                            	<option	value="friendship">Friendship</option>
+                           <select name="categoryid"  style="width: 159px;" class="md-input" required="required">
+                            	<option	value="">please select category</option>
+                             	<c:forEach items="${categories}" var="category">
+                            		<option	value="${category.categoryid}">${category.name}</option>
+                            	</c:forEach>
                             </select>
                         </div>
                     </div>
@@ -87,7 +83,7 @@
                             <div id="file_upload-drop" class="uk-file-upload">
                                 <p class="uk-text">Drop file to upload</p>
                                 <p class="uk-text-muted uk-text-small uk-margin-small-bottom">or</p>
-                                <a class="uk-form-file md-btn">choose file<input id="file_upload-select" name="file" type="file"></a>
+                                <a class="uk-form-file md-btn">choose file<input id="file_upload-select" name="file" type="file" required="required"></a>
                             </div>
                             <div id="file_upload-progressbar" class="uk-progress uk-hidden">
                                 <div class="uk-progress-bar" style="width:0">0%</div>

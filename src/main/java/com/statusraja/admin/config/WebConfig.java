@@ -21,7 +21,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	                "/js/**",
 	                "/skins/**",
 	                "/img/**",
-	                "/bower_components/**")
+	                "/bower_components/**",
+	                "/file_manager/**")
 	                .addResourceLocations(
 	                        "classpath:/static/image/",
 	                        "classpath:/static/icons/",
@@ -29,7 +30,8 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 	                        "classpath:/static/js/",
 	                        "classpath:/static/skins/",
 	                        "classpath:/static/img/",
-	                        "classpath:/static/bower_components/");
+	                        "classpath:/static/bower_components/",
+	                        "classpath:/static/file_manager/");
 	    }
 
     @Override

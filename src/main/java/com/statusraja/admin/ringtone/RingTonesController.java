@@ -15,7 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.statusraja.admin.enums.CategoryStatusEnum;
+import com.statusraja.admin.service.GenericService;
+import com.statusraja.admin.vo.Categories;
 import com.statusraja.admin.vo.FileDetailsVo;
+import com.statusraja.admin.vo.Languages;
 
 @Controller
 @RequestMapping("/admin")
@@ -25,6 +29,9 @@ public class RingTonesController {
 
 	@Autowired
 	RingtoneService ringtoneService;
+	
+	@Autowired
+	GenericService genericService;
 	
 	@GetMapping("/ringtoneslist")
 	public ModelAndView getRingtoneList() {
@@ -40,6 +47,10 @@ public class RingTonesController {
 	public ModelAndView addRingtone() {
 		logger.info("add to ringtone !..");
 		ModelAndView model = new ModelAndView("/admin/ringtone/add_ringtone");
+		List<Languages> languages=genericService.getLanguageList();
+		List<Categories> categories=genericService.getCategories(CategoryStatusEnum.RINGTONE.getStatus());
+		model.addObject("languages", languages);
+		model.addObject("categories", categories);
 		return model;
 	}
 	
@@ -60,7 +71,7 @@ public class RingTonesController {
         	if(fileUrl!=null)
         		mvc.addObject("message","file uploaded successfully!");
         }
-		
+        mvc.setViewName("redirect:/admin/ringtoneslist");
 		return mvc;
 	}
 }

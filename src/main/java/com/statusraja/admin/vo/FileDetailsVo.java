@@ -27,10 +27,13 @@ public class FileDetailsVo implements Serializable {
 	private Date createddate;
 	private Date updateddate;
 
-	private String statusContent;
+	private String status_content;
 	private String actor;
 	private Integer likes;
 	private Integer downloadcount;
+	
+	private Integer categoryid;
+	private Integer langid;
 	
 	MultipartFile file;
 	
@@ -197,20 +200,37 @@ public class FileDetailsVo implements Serializable {
 	}
 
 	
-	public String getStatusContent() {
-		return statusContent;
+	
+	public String getStatus_content() {
+		return status_content;
 	}
 
-	public void setStatusContent(String statusContent) {
-		this.statusContent = statusContent;
+	public void setStatus_content(String status_content) {
+		this.status_content = status_content;
 	}
-	
+
 	public String getFile_duration() {
 		return file_duration;
 	}
 
 	public void setFile_duration(String file_duration) {
 		this.file_duration = file_duration;
+	}
+
+	public Integer getCategoryid() {
+		return categoryid;
+	}
+
+	public void setCategoryid(Integer categoryid) {
+		this.categoryid = categoryid;
+	}
+
+	public Integer getLangid() {
+		return langid;
+	}
+
+	public void setLangid(Integer langid) {
+		this.langid = langid;
 	}
 
 	@Override
@@ -220,8 +240,9 @@ public class FileDetailsVo implements Serializable {
 				+ language + ", category=" + category + ", filename=" + filename + ", file_url=" + file_url
 				+ ", file_duration=" + file_duration + ", filePath=" + filePath + ", extension=" + extension
 				+ ", fileStatus=" + fileStatus + ", banner_img=" + banner_img + ", createddate=" + createddate
-				+ ", updateddate=" + updateddate + ", statusContent=" + statusContent + ", actor=" + actor + ", likes="
-				+ likes + ", downloadcount=" + downloadcount + ", file=" + file + "]";
+				+ ", updateddate=" + updateddate + ", status_content=" + status_content + ", actor=" + actor
+				+ ", likes=" + likes + ", downloadcount=" + downloadcount + ", categoryid=" + categoryid + ", langid="
+				+ langid + ", file=" + file + "]";
 	}
 
 }

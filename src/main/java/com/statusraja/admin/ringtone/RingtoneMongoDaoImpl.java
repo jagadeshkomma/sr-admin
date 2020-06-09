@@ -50,7 +50,8 @@ public class RingtoneMongoDaoImpl implements RingtoneMongoDao {
 		Document descDoc = new Document();
 		descDoc.put("srid", fileDetailsVo.getSrid());
 		descDoc.put("description", fileDetailsVo.getDescription());
-		descDoc.put("language", fileDetailsVo.getLanguage());
+		descDoc.put("language", fileDetailsVo.getLangid());
+		descDoc.put("category", fileDetailsVo.getCategoryid());
 		descDoc.put("createddate", fileDetailsVo.getCreateddate());
 		descDoc.put("updateddate", fileDetailsVo.getCreateddate());
 		coll = mongoDBUtil.getNestCollection(CollectionsConstant.DESCRIPTION_COLLECTION);
@@ -66,6 +67,7 @@ public class RingtoneMongoDaoImpl implements RingtoneMongoDao {
 		fomatsDoc.put("filename", fileDetailsVo.getFilename());
 		fomatsDoc.put("file_duration", fileDetailsVo.getFile_duration());
 		fomatsDoc.put("extension", fileDetailsVo.getExtension());
+		fomatsDoc.put("status_content", fileDetailsVo.getStatus_content());
 		fomatsDoc.put("createddate", fileDetailsVo.getCreateddate());
 		fomatsDoc.put("updateddate", fileDetailsVo.getCreateddate());
 		coll = mongoDBUtil.getNestCollection(CollectionsConstant.FORMATS_COLLECTION);
@@ -143,7 +145,7 @@ public class RingtoneMongoDaoImpl implements RingtoneMongoDao {
 			
 			List<Document> descList=(List<Document>) fileDoc.get("descriptionDoc");
 			Document descDoc=descList.get(0);
-			fileDetailsVo.setLanguage(descDoc.getString("language"));
+			fileDetailsVo.setLangid(descDoc.getInteger("language"));
 			
 			filesList.add(fileDetailsVo);
 		}
