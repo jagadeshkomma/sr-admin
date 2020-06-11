@@ -40,6 +40,9 @@ public class RingtoneServiceImpl implements RingtoneService {
 	public String uploadFiles(FileDetailsVo fileDetailsVo, HttpServletRequest request) {
 		
 		String fileURL=fileUploadService.uploadWebDavServer(fileDetailsVo.getFile(),fileDetailsVo.getSrid(), request);
+		if(fileDetailsVo.getImgfile()!=null) {
+			String fileImgUrl=fileUploadService.uploadWebDavServer(fileDetailsVo.getImgfile(),fileDetailsVo.getSrid(), request);
+		}
 		if(fileURL!=null){
 			this.insertRecordInMongo(fileDetailsVo);
 		}
@@ -62,7 +65,13 @@ public class RingtoneServiceImpl implements RingtoneService {
 			fileDetailsVo.setFileStatus(DigiLockerStatusEnum.ACTIVE.toString());
 			fileDetailsVo.setCreateddate(new Date());
 			fileDetailsVo.setType(CategoryStatusEnum.RINGTONE.getStatus());
-			
+			if(fileDetailsVo.getImgfile()!=null) {
+				String ImgfileName = fileDetailsVo.getImgfile().getOriginalFilename();
+				StringBuilder ImgfilePath =new StringBuilder()
+						.append(fileDetailsVo.getSrid()).append(FilePathVariables.FLASH).append(ImgfileName.replaceAll(" ", "_"));
+				fileDetailsVo.setBanner_img_url(ImgfilePath.toString());
+				fileDetailsVo.setBannerimgName(ImgfileName);
+			}
 			String duration=getDurationWithMp3(fileDetailsVo.getFile());
 			fileDetailsVo.setFile_duration(duration);
 			

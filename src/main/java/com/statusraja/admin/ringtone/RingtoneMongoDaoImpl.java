@@ -67,6 +67,9 @@ public class RingtoneMongoDaoImpl implements RingtoneMongoDao {
 		fomatsDoc.put("filename", fileDetailsVo.getFilename());
 		fomatsDoc.put("file_duration", fileDetailsVo.getFile_duration());
 		fomatsDoc.put("extension", fileDetailsVo.getExtension());
+		fomatsDoc.put("banner_img", fileDetailsVo.getBanner_img_url());
+		fomatsDoc.put("banner_name", fileDetailsVo.getBannerimgName());
+		fomatsDoc.put("actor", fileDetailsVo.getActor());
 		fomatsDoc.put("status_content", fileDetailsVo.getStatus_content());
 		fomatsDoc.put("createddate", fileDetailsVo.getCreateddate());
 		fomatsDoc.put("updateddate", fileDetailsVo.getCreateddate());

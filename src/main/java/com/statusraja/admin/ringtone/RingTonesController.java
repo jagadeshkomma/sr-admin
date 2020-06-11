@@ -37,7 +37,7 @@ public class RingTonesController {
 	public ModelAndView getRingtoneList() {
 		logger.info("Welcome to ringtone list!..");
 		ModelAndView model = new ModelAndView("/admin/ringtone/ringtones_list");
-		List<FileDetailsVo> fileDetailsVos=ringtoneService.getMasterDetailsList("ringtone");
+		List<FileDetailsVo> fileDetailsVos=ringtoneService.getMasterDetailsList(CategoryStatusEnum.RINGTONE.getStatus());
 		model.addObject("fileDetailsVos", fileDetailsVos);
 		
 		return model;
