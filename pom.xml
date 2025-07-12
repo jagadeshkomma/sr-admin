@@ -19,7 +19,7 @@
 		<java.version>1.8</java.version>
 		<mongo.db.version>3.6.0</mongo.db.version>
 		<commons-lang.version>2.6</commons-lang.version>
-		<org.apache.commons3>3.3.2</org.apache.commons3>
+		<org.apache.commons3>3.18.0</org.apache.commons3>
 		<servlet.version>3.0.1</servlet.version>
 	</properties>
 
